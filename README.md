@@ -54,6 +54,19 @@ By default, the app runs on **http://localhost:8080**.
 - **Flyway** runs migrations located in `src/main/resources/db/migration/`.
 - Initial job data is loaded from `src/main/resources/data/job_data_clean.csv`.
 
+### Run with Docker
+- Run with Docker Compose
+```bash
+   docker compose up --build -d
+```
+
+#### This will:
+- Start the job-service container
+- Mount a volume jobdata:/data for the embedded H2 database files
+- Expose port 8080
+
+API is available at: http://localhost:8080/api/v1/job
+
 ### API Endpoint
 #### GET /api/v1/job
 
