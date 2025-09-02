@@ -1,4 +1,4 @@
-# Job Service Assessment
+# Job Service (Assessment)
 
 This project is a **Spring Boot 3 / Java 21** application that provides a REST API for searching and filtering job salary survey data.  
 It demonstrates use of **Spring Data JPA, Specifications, MapStruct, Flyway, Lombok, and JUnit5/Mockito** with a clean architecture and best practices.
