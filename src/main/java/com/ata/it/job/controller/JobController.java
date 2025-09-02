@@ -29,7 +29,7 @@ public class JobController {
             @RequestParam(name = "salary_lte", required = false) BigDecimal salaryLte,
             @RequestParam(name = "salary_gt", required = false) BigDecimal salaryGt,
             @RequestParam(name = "salary_lt", required = false) BigDecimal salaryLt,
-            @RequestParam(name = "fields", required = false) String fieldsCsv,
+            @RequestParam(name = "fields", required = false) String fields,
             @RequestParam(name = "sort", required = false) String sort,
             @RequestParam(name = "sort_type", required = false, defaultValue = "ASC") String sortType,
             @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
@@ -40,7 +40,7 @@ public class JobController {
                 salaryGte, salaryLte, salaryGt, salaryLt,
                 sort, sortType,
                 page, size,
-                fieldsCsv
+                fields
         );
 
         PageResponse<?> pageResult = service.search(jobQueryParams);

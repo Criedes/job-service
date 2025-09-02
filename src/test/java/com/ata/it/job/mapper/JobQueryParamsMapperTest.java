@@ -44,14 +44,14 @@ class JobQueryParamsMapperTest {
 
         // Assert
         assertThat(params).isNotNull();
-        assertThat(params.getJob_title()).isEqualTo("Engineer"); // trimmed
+        assertThat(params.getJobTitle()).isEqualTo("Engineer"); // trimmed
         assertThat(params.getGender()).isEqualTo("M");
-        assertThat(params.getSalary_gte()).isEqualByComparingTo("100000");
-        assertThat(params.getSalary_lte()).isEqualByComparingTo("200000");
-        assertThat(params.getSalary_gt()).isEqualByComparingTo("120000");
-        assertThat(params.getSalary_lt()).isEqualByComparingTo("180000");
+        assertThat(params.getSalaryGte()).isEqualByComparingTo("100000");
+        assertThat(params.getSalaryLte()).isEqualByComparingTo("200000");
+        assertThat(params.getSalaryGt()).isEqualByComparingTo("120000");
+        assertThat(params.getSalaryLt()).isEqualByComparingTo("180000");
         assertThat(params.getSort()).isEqualTo("salary"); // trimmed
-        assertThat(params.getSort_type()).isEqualTo("DESC");
+        assertThat(params.getSortType()).isEqualTo("DESC");
         assertThat(params.getPage()).isEqualTo(2);
         assertThat(params.getSize()).isEqualTo(25);
         assertThat(params.getFields()).containsExactly("job_title", "gender", "salary");
@@ -68,10 +68,10 @@ class JobQueryParamsMapperTest {
                 "  , , "
         );
 
-        assertThat(params.getJob_title()).isNull();
+        assertThat(params.getJobTitle()).isNull();
         assertThat(params.getGender()).isNull();
         assertThat(params.getSort()).isNull();
-        assertThat(params.getSort_type()).isNull();
+        assertThat(params.getSortType()).isNull();
         assertThat(params.getFields()).isEmpty();
     }
 

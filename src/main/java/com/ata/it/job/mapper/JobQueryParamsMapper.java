@@ -12,15 +12,11 @@ import java.util.List;
 @Mapper()
 public interface JobQueryParamsMapper {
 
-    @Mapping(target = "salary_lte", source = "salaryLte")
-    @Mapping(target = "salary_lt", source = "salaryLt")
-    @Mapping(target = "salary_gte", source = "salaryGte")
-    @Mapping(target = "salary_gt", source = "salaryGt")
-    @Mapping(target = "job_title", source = "jobTitle", qualifiedByName = "trimToNull")
+    @Mapping(target = "jobTitle", source = "jobTitle", qualifiedByName = "trimToNull")
     @Mapping(target = "gender", source = "gender", qualifiedByName = "trimToNull")
     @Mapping(target = "sort", source = "sort", qualifiedByName = "trimToNull")
-    @Mapping(target = "sort_type", source = "sortType", qualifiedByName = "trimToNull")
-    @Mapping(target = "fields", source = "fieldsCsv", qualifiedByName = "csvToList")
+    @Mapping(target = "sortType", source = "sortType", qualifiedByName = "trimToNull")
+    @Mapping(target = "fields", source = "fields", qualifiedByName = "csvToList")
     JobQueryParams toDto(
             String jobTitle,
             String gender,
@@ -32,7 +28,7 @@ public interface JobQueryParamsMapper {
             String sortType,
             Integer page,
             Integer size,
-            String fieldsCsv
+            String fields
     );
 
     @Named("trimToNull")

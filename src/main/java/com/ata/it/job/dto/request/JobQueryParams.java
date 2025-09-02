@@ -9,16 +9,16 @@ import java.util.List;
 @Getter
 @Setter
 public class JobQueryParams {
-    private String job_title;
+    private String jobTitle;
     private String gender;
 
-    private BigDecimal salary_gte;
-    private BigDecimal salary_lte;
-    private BigDecimal salary_gt;
-    private BigDecimal salary_lt;
+    private BigDecimal salaryGte;
+    private BigDecimal salaryLte;
+    private BigDecimal salaryGt;
+    private BigDecimal salaryLt;
 
     private String sort;
-    private String sort_type;
+    private String sortType;
 
     private Integer page;
     private Integer size;

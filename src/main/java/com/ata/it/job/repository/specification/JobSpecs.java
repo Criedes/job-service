@@ -49,12 +49,12 @@ public final class JobSpecs {
 
     public static Specification<JobEntity> all(JobQueryParams q) {
         return Specification.allOf(Arrays.asList(
-                ObjectUtils.isEmpty(q.getJob_title()) ? null : jobTitleContains(q.getJob_title()),
+                ObjectUtils.isEmpty(q.getJobTitle()) ? null : jobTitleContains(q.getJobTitle()),
                 ObjectUtils.isEmpty(q.getGender()) ? null : genderEquals(q.getGender()),
-                ObjectUtils.isEmpty(q.getSalary_gte()) ? null : salaryGte(q.getSalary_gte()),
-                ObjectUtils.isEmpty(q.getSalary_lte()) ? null : salaryLte(q.getSalary_lte()),
-                ObjectUtils.isEmpty(q.getSalary_gt()) ? null : salaryGt(q.getSalary_gt()),
-                ObjectUtils.isEmpty(q.getSalary_lt()) ? null : salaryLt(q.getSalary_lt())
+                ObjectUtils.isEmpty(q.getSalaryGte()) ? null : salaryGte(q.getSalaryGte()),
+                ObjectUtils.isEmpty(q.getSalaryLte()) ? null : salaryLte(q.getSalaryLte()),
+                ObjectUtils.isEmpty(q.getSalaryGt()) ? null : salaryGt(q.getSalaryGt()),
+                ObjectUtils.isEmpty(q.getSalaryLt()) ? null : salaryLt(q.getSalaryLt())
         ));
     }
 }

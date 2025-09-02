@@ -28,7 +28,7 @@ public class JobService {
 
     public PageResponse<?> search(JobQueryParams q) {
         Specification<JobEntity> spec = JobSpecs.all(q);
-        Sort sort = sortOf(q.getSort(), q.getSort_type());
+        Sort sort = sortOf(q.getSort(), q.getSortType());
         Pageable pageable = PageRequest.of(
                 q.getPage() == null ? 0 : Math.max(q.getPage(), 0),
                 q.getSize() == null ? 50 : Math.max(q.getSize(), 1),

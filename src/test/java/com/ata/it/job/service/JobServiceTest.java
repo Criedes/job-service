@@ -42,11 +42,11 @@ class JobServiceTest {
     void search_noFields_returnsDtoPage_andUsesSortAndPaging() {
         JobQueryParams q = mock(JobQueryParams.class);
         when(q.getSort()).thenReturn("salary");
-        when(q.getSort_type()).thenReturn("DESC");
+        when(q.getSortType()).thenReturn("DESC");
         when(q.getPage()).thenReturn(1);
         when(q.getSize()).thenReturn(20);
         when(q.getFields()).thenReturn(null);
-        when(q.getSalary_gte()).thenReturn(new BigDecimal("120000"));
+        when(q.getSalaryGte()).thenReturn(new BigDecimal("120000"));
 
         JobEntity e1 = new JobEntity();
         JobEntity e2 = new JobEntity();
@@ -85,7 +85,7 @@ class JobServiceTest {
     void search_withFields_projectsToMap_andDefaultsSortToJobTitleAsc() {
         JobQueryParams q = mock(JobQueryParams.class);
         when(q.getSort()).thenReturn("unknown");      // triggers default to jobTitle
-        when(q.getSort_type()).thenReturn("ASC");
+        when(q.getSortType()).thenReturn("ASC");
         when(q.getPage()).thenReturn(0);
         when(q.getSize()).thenReturn(50);
         when(q.getFields()).thenReturn(List.of("job_title", "gender", "salary"));

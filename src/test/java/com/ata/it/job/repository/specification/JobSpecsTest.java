@@ -129,9 +129,9 @@ class JobSpecsTest {
         // job_title contains 'engineer' AND gender = 'F' AND salary >= 140000
         JobQueryParams q = new JobQueryParams();
         // Assuming Lombok @Data on JobQueryParams with snake_case accessors:
-        q.setJob_title("engineer");
+        q.setJobTitle("engineer");
         q.setGender("F");
-        q.setSalary_gte(new BigDecimal("140000"));
+        q.setSalaryGte(new BigDecimal("140000"));
         // leave others null
 
         var spec = JobSpecs.all(q);
