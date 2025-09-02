@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-@Mapper()
+@Mapper(componentModel = "spring")
 public interface JobQueryParamsMapper {
 
     @Mapping(target = "jobTitle", source = "jobTitle", qualifiedByName = "trimToNull")

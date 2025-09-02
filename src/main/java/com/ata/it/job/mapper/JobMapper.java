@@ -5,7 +5,7 @@ import com.ata.it.job.dto.JobDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper()
+@Mapper(componentModel = "spring")
 public interface JobMapper {
 
     @Mapping(source = "jobTitle", target = "jobTitle")
