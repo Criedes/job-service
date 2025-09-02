@@ -24,7 +24,7 @@ public class JobProjectionMapper {
                 case "annual_bonus"             -> m.put("annual_bonus", d.annualBonus());
                 case "annual_stock_value_bonus" -> m.put("annual_stock_value_bonus", d.annualStockValueBonus());
                 case "gender"                   -> m.put("gender", d.gender());
-                case "source_timestamp"         -> m.put("source_timestamp", d.sourceTimestamp());
+                case "timestamp"         -> m.put("timestamp", d.sourceTimestamp());
                 case "additional_comments"       -> m.put("additional_comments", d.additionalComments());
                 default -> {} // ignore unknowns
             }

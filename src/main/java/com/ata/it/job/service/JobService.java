@@ -9,6 +9,7 @@ import com.ata.it.job.repository.JobRepository;
 import com.ata.it.job.repository.specification.JobSpecs;
 import com.ata.it.job.dto.request.JobQueryParams;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class JobService {
@@ -27,6 +29,7 @@ public class JobService {
     private final JobProjectionMapper projectionMapper;
 
     public PageResponse<?> search(JobQueryParams q) {
+        log.info("JobService: Start job search with parameters {}", q);
         Specification<JobEntity> spec = JobSpecs.all(q);
         Sort sort = sortOf(q.getSort(), q.getSortType());
         Pageable pageable = PageRequest.of(
@@ -42,12 +45,14 @@ public class JobService {
 
         // If sparse fields requested, project each DTO to Map<String,Object>
         if (q.getFields() != null && !q.getFields().isEmpty()) {
+            log.info("JobService: fields projection: {}",  q.getFields());
             List<Map<String,Object>> content = dtoPage.getContent().stream()
                     .map(d -> projectionMapper.project(d, q.getFields()))
                     .toList();
             return PageResponse.of(content, dtoPage); // stable page wrapper
         }
 
+        log.info("JobService: End job search");
         return PageResponse.of(dtoPage.getContent(), dtoPage);
     }
 

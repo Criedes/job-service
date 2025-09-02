@@ -57,7 +57,7 @@ class JobProjectionMapperTest {
                 "years_at_employer", "years_of_experience",
                 "salary", "signing_bonus", "annual_bonus",
                 "annual_stock_value_bonus", "gender",
-                "source_timestamp", "additional_comments"
+                "timestamp", "additional_comments"
         );
 
         Map<String, Object> result = mapper.project(dto, allFields);
